@@ -18,6 +18,7 @@ gem 'jquery-rails', '3.0.4'
 gem 'sass-rails',   '4.0.0'
 gem 'uglifier',     '2.2.1'
 gem 'coffee-rails', '4.0.0'
+gem 'anjlab-bootstrap-rails', :github => 'anjlab/bootstrap-rails', :require => 'bootstrap-rails'
 
 group :development do
   gem 'better_errors',      '0.9.0'
