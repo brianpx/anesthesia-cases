@@ -9,6 +9,7 @@ gem 'bcrypt-ruby',  '3.1.2'
 
 # Utilities
 gem 'awesome_print',    '1.1.0'
+gem 'utility_belt_r19', '0.0.1'
 
 # JS and CSS
 gem 'jquery-rails', '3.0.4'
