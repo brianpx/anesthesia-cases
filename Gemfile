@@ -7,6 +7,9 @@ gem 'pg',           '0.16.0'
 gem 'jbuilder',     '1.5.1'
 gem 'bcrypt-ruby',  '3.1.2'
 
+# Utilities
+gem 'awesome_print',    '1.1.0'
+
 # JS and CSS
 gem 'jquery-rails', '3.0.4'
 gem 'sass-rails',   '~> 4.0.0'
