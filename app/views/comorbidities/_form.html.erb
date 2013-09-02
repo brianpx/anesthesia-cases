@@ -1,0 +1,65 @@
+<%= form_for(@comorbidity) do |f| %>
+  <% if @comorbidity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comorbidity.errors.count, "error") %> prohibited this comorbidity from being saved:</h2>
+
+      <ul>
+      <% @comorbidity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :male %><br>
+    <%= f.check_box :male %>
+  </div>
+  <div class="field">
+    <%= f.label :female %><br>
+    <%= f.check_box :female %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_10s %><br>
+    <%= f.number_field :freq_in_10s %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_20s %><br>
+    <%= f.number_field :freq_in_20s %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_30s %><br>
+    <%= f.number_field :freq_in_30s %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_40s %><br>
+    <%= f.number_field :freq_in_40s %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_50s %><br>
+    <%= f.number_field :freq_in_50s %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_60s %><br>
+    <%= f.number_field :freq_in_60s %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_70s %><br>
+    <%= f.number_field :freq_in_70s %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_80s %><br>
+    <%= f.number_field :freq_in_80s %>
+  </div>
+  <div class="field">
+    <%= f.label :freq_in_90s %><br>
+    <%= f.number_field :freq_in_90s %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

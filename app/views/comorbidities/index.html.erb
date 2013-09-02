@@ -1,0 +1,49 @@
+<h1>Listing comorbidities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Male</th>
+      <th>Female</th>
+      <th>Freq in 10s</th>
+      <th>Freq in 20s</th>
+      <th>Freq in 30s</th>
+      <th>Freq in 40s</th>
+      <th>Freq in 50s</th>
+      <th>Freq in 60s</th>
+      <th>Freq in 70s</th>
+      <th>Freq in 80s</th>
+      <th>Freq in 90s</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comorbidities.each do |comorbidity| %>
+      <tr>
+        <td><%= comorbidity.name %></td>
+        <td><%= comorbidity.male %></td>
+        <td><%= comorbidity.female %></td>
+        <td><%= comorbidity.freq_in_10s %></td>
+        <td><%= comorbidity.freq_in_20s %></td>
+        <td><%= comorbidity.freq_in_30s %></td>
+        <td><%= comorbidity.freq_in_40s %></td>
+        <td><%= comorbidity.freq_in_50s %></td>
+        <td><%= comorbidity.freq_in_60s %></td>
+        <td><%= comorbidity.freq_in_70s %></td>
+        <td><%= comorbidity.freq_in_80s %></td>
+        <td><%= comorbidity.freq_in_90s %></td>
+        <td><%= link_to 'Show', comorbidity %></td>
+        <td><%= link_to 'Edit', edit_comorbidity_path(comorbidity) %></td>
+        <td><%= link_to 'Destroy', comorbidity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comorbidity', new_comorbidity_path %>
