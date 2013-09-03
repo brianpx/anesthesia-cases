@@ -1,21 +1,19 @@
 <h1>Listing comorbidities</h1>
 
-<table>
+<table class="table table-striped table-hover table-condensed table-responsive table-bordered">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Male</th>
-      <th>Female</th>
-      <th>Freq in 10s</th>
-      <th>Freq in 20s</th>
-      <th>Freq in 30s</th>
-      <th>Freq in 40s</th>
-      <th>Freq in 50s</th>
-      <th>Freq in 60s</th>
-      <th>Freq in 70s</th>
-      <th>Freq in 80s</th>
-      <th>Freq in 90s</th>
-      <th></th>
+      <th>Beginning Age</th>
+      <th>Slope</th>
+      <th>Slope Exponent</th>
+      <th>Vertical Offset</th>
+      <th>Male Risk</th>
+      <th>Female Risk</th>
+      <th>Smoking</th>
+      <th>Diabetes</th>
+      <th>Hypertension</th>
+      <th>Hyperlipidemia</th>
       <th></th>
       <th></th>
     </tr>
@@ -25,18 +23,17 @@
     <% @comorbidities.each do |comorbidity| %>
       <tr>
         <td><%= comorbidity.name %></td>
-        <td><%= comorbidity.male %></td>
-        <td><%= comorbidity.female %></td>
-        <td><%= comorbidity.freq_in_10s %></td>
-        <td><%= comorbidity.freq_in_20s %></td>
-        <td><%= comorbidity.freq_in_30s %></td>
-        <td><%= comorbidity.freq_in_40s %></td>
-        <td><%= comorbidity.freq_in_50s %></td>
-        <td><%= comorbidity.freq_in_60s %></td>
-        <td><%= comorbidity.freq_in_70s %></td>
-        <td><%= comorbidity.freq_in_80s %></td>
-        <td><%= comorbidity.freq_in_90s %></td>
-        <td><%= link_to 'Show', comorbidity %></td>
+        <td><%= comorbidity.beginning_age %></td>
+        <td><%= comorbidity.slope %></td>
+        <td><%= comorbidity.exponent %></td>
+        <td><%= comorbidity.vertical_offset %></td>
+        <td><%= comorbidity.male_risk %></td>
+        <td><%= comorbidity.female_risk %></td>
+        <td><%= comorbidity.smoking %></td>
+        <td><%= comorbidity.diabetes %></td>
+        <td><%= comorbidity.hypertension %></td>
+        <td><%= comorbidity.hyperlipidemia %></td>
+
         <td><%= link_to 'Edit', edit_comorbidity_path(comorbidity) %></td>
         <td><%= link_to 'Destroy', comorbidity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -46,4 +43,4 @@
 
 <br>
 
-<%= link_to 'New Comorbidity', new_comorbidity_path %>
+<%= link_to 'Add A Comorbidity', new_comorbidity_path %>
