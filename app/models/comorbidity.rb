@@ -17,12 +17,9 @@
 #
 
 class Comorbidity < ActiveRecord::Base
-  validates :name,    :format     => { :with => /\A[[:print:][:space:]]{1,100}\Z/ }
+  validates :name, :format => { :with => /\A[[:print:][:space:]]{1,100}\Z/ }
 
-  validates :male,    :inclusion  => { :in => [true, false] }
-  validates :female,  :inclusion  => { :in => [true, false] }
-
-  %w(slope exponent male_risk female_risk smoking diabetes hypertension hyperlipidemia).each do |column|
+  %w(beginning_age slope exponent vertical_offset male_risk female_risk smoking diabetes hypertension hyperlipidemia).each do |column|
     validates column, :numericality => {
       :greater_than_or_equal_to => 0,
       :less_than_or_equal_to    => 100,

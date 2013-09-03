@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130903021116) do
+ActiveRecord::Schema.define(version: 20130903024431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,14 +20,16 @@ ActiveRecord::Schema.define(version: 20130903021116) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "slope",          precision: 10, scale: 2
-    t.decimal  "exponent",       precision: 10, scale: 2
-    t.decimal  "male_risk",      precision: 10, scale: 2
-    t.decimal  "female_risk",    precision: 10, scale: 2
-    t.decimal  "smoking",        precision: 10, scale: 2
-    t.decimal  "diabetes",       precision: 10, scale: 2
-    t.decimal  "hypertension",   precision: 10, scale: 2
-    t.decimal  "hyperlipidemia", precision: 10, scale: 2
+    t.decimal  "slope",           precision: 10, scale: 2
+    t.decimal  "exponent",        precision: 10, scale: 2
+    t.decimal  "male_risk",       precision: 10, scale: 2
+    t.decimal  "female_risk",     precision: 10, scale: 2
+    t.decimal  "smoking",         precision: 10, scale: 2
+    t.decimal  "diabetes",        precision: 10, scale: 2
+    t.decimal  "hypertension",    precision: 10, scale: 2
+    t.decimal  "hyperlipidemia",  precision: 10, scale: 2
+    t.decimal  "beginning_age",   precision: 10, scale: 2
+    t.decimal  "vertical_offset", precision: 10, scale: 2
   end
 
 end

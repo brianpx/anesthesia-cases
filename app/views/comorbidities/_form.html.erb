@@ -26,6 +26,13 @@
 
       <div class="form-group">
         <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :beginning_age, :class => 'width-120' %></span>
+          <%= f.number_field :beginning_age, :class => 'form-control', :placeholder => 0 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
           <span class="input-group-addon left"><%= f.label :slope, :class => 'width-120' %></span>
           <%= f.number_field :slope, :class => 'form-control', :placeholder => 1 %>
         </div>
@@ -35,6 +42,13 @@
         <div class="input-group">
           <span class="input-group-addon left"><%= f.label :exponent, 'Slope Exponent', :class => 'width-120' %></span>
           <%= f.number_field :exponent, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :vertical_offset, :class => 'width-120' %></span>
+          <%= f.number_field :vertical_offset, :class => 'form-control', :placeholder => 0 %>
         </div>
       </div>
 

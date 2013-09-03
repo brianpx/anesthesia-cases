@@ -56,6 +56,6 @@ class ComorbiditiesController < ApplicationController
     end
 
     def comorbidity_params
-      params.require(:comorbidity).permit(:name, :male, :female, :freq_in_10s, :freq_in_20s, :freq_in_30s, :freq_in_40s, :freq_in_50s, :freq_in_60s, :freq_in_70s, :freq_in_80s, :freq_in_90s)
+      params.require(:comorbidity).permit(:name, :beginning_age, :slope, :exponent, :vertical_offset, :male_risk, :female_risk, :smoking, :diabetes, :hypertension, :hyperlipidemia)
     end
 end
