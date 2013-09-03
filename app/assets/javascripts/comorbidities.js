@@ -1,2 +1,12 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).ready(function() {
+  var caseForm      = $("#caseForm");
+  var ageDropdown   = caseForm.find("#ageDropdown");
+  var ageTextField  = caseForm.find("#ageText");
+
+  ageDropdown.change(function() {
+    if (ageDropdown.val() == "Random")
+      { ageTextField.slideUp(); }
+    else
+      { ageTextField.slideDown(); }
+  });
+});

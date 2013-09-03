@@ -1,5 +1,54 @@
-<div class="jumbotron">
-  <h1>This is cases/show.html.erb</h1>
+<div class="case">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="jumbotron">
+        <h4>Build an anethesia case using the options below.</h4>
+      </div>
+    </div>
+  </div>
 
-  <p>Replace it with proper content.</p>
+  <%= form_tag cases_path, :id => 'caseForm' do %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon left"><%= label_tag 'case[gender]', 'Gender', :class => 'width-130' %></span>
+            <%= select 'case', 'gender', %w(Random Male Female), {}, :class => 'form-control' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon left"><%= label_tag 'case[age]', 'Age', :class => 'width-130' %></span>
+            <%= select 'case', 'age', %w(Random Specific), {}, :class => 'form-control', :id => 'ageDropdown' %>
+            <%= text_field_tag 'case[age]', nil, :class => 'form-control', :placeholder => 55, :id => 'ageText', :style => 'display: none;' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon left"><%= label_tag 'case[num_comorbidities]', '# of Comorbidities', :class => 'width-130' %></span>
+            <%= select 'case', 'num_comorbidities', %w(Random 1 2 3 4), {}, :class => 'form-control' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="actions">
+          <%= submit_tag 'Generate Case', :class => 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
 </div>
