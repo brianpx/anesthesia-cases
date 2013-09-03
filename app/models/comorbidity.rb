@@ -4,8 +4,6 @@
 #
 #  id             :integer          not null, primary key
 #  name           :string(255)
-#  male           :boolean
-#  female         :boolean
 #  created_at     :datetime
 #  updated_at     :datetime
 #  slope          :decimal(10, 2)

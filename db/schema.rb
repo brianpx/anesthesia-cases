@@ -11,15 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130903015636) do
+ActiveRecord::Schema.define(version: 20130903021116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comorbidities", force: true do |t|
     t.string   "name"
-    t.boolean  "male"
-    t.boolean  "female"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "slope",          precision: 10, scale: 2
