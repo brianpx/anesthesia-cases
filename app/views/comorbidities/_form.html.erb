@@ -1,65 +1,94 @@
-<%= form_for(@comorbidity) do |f| %>
-  <% if @comorbidity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comorbidity.errors.count, "error") %> prohibited this comorbidity from being saved:</h2>
+<%= form_for @comorbidity, :html => { :class => 'comorbidity' } do |f| %>
+  <div class="row">
+    <div class="col-sm-12">
+      <% if @comorbidity.errors.any? %>
+        <div class="alert alert-danger">
+          <strong>Woah there!</strong> Take care of these:
 
-      <ul>
-      <% @comorbidity.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <ul>
+            <% @comorbidity.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :name, :class => 'width-120' %></span>
+          <%= f.text_field :name, :class => 'form-control', :placeholder => 'Enter a name' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :slope, :class => 'width-120' %></span>
+          <%= f.number_field :slope, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :exponent, 'Slope Exponent', :class => 'width-120' %></span>
+          <%= f.number_field :exponent, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :male_risk, :class => 'width-120' %></span>
+          <%= f.number_field :male_risk, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :female_risk, :class => 'width-120' %></span>
+          <%= f.number_field :female_risk, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :smoking, :class => 'width-120' %></span>
+          <%= f.number_field :smoking, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :diabetes, :class => 'width-120' %></span>
+          <%= f.number_field :diabetes, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :hypertension, :class => 'width-120' %></span>
+          <%= f.number_field :hypertension, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon left"><%= f.label :hyperlipidemia, :class => 'width-120' %></span>
+          <%= f.number_field :hyperlipidemia, :class => 'form-control', :placeholder => 1 %>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :male %><br>
-    <%= f.check_box :male %>
-  </div>
-  <div class="field">
-    <%= f.label :female %><br>
-    <%= f.check_box :female %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_10s %><br>
-    <%= f.number_field :freq_in_10s %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_20s %><br>
-    <%= f.number_field :freq_in_20s %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_30s %><br>
-    <%= f.number_field :freq_in_30s %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_40s %><br>
-    <%= f.number_field :freq_in_40s %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_50s %><br>
-    <%= f.number_field :freq_in_50s %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_60s %><br>
-    <%= f.number_field :freq_in_60s %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_70s %><br>
-    <%= f.number_field :freq_in_70s %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_80s %><br>
-    <%= f.number_field :freq_in_80s %>
-  </div>
-  <div class="field">
-    <%= f.label :freq_in_90s %><br>
-    <%= f.number_field :freq_in_90s %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="actions">
+        <%= f.submit :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', comorbidities_path %>
+      </div>
+    </div>
   </div>
 <% end %>

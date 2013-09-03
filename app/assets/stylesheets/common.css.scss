@@ -1,3 +1,26 @@
 body {
   padding-top: 70px;
 }
+
+/* Widths {{{ */
+
+.width-120  { width: 120px; }
+.width-150  { width: 150px; }
+
+/* End Widths }}} */
+
+/* Forms {{{ */
+
+.field_with_errors {
+
+  input, select, textarea {
+    border: 2px solid #b94a48;
+  }
+}
+
+.input-group-addon.left {
+  text-align: left
+}
+
+/* End Forms }}} */
+

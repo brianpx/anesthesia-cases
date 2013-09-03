@@ -9,18 +9,19 @@ class ComorbiditiesController < ApplicationController
   end
 
   def new
-    @comorbidity = Comorbidity.new
+    @comorbidity = ComorbidityBuilder.new.comorbidity
   end
 
   def edit
   end
 
   def create
-    @comorbidity = Comorbidity.new(comorbidity_params)
+    builder       = ComorbidityBuilder.new comorbidity_params
+    @comorbidity  = builder.comorbidity
 
     respond_to do |format|
-      if @comorbidity.save
-        format.html { redirect_to @comorbidity, notice: 'Comorbidity was successfully created.' }
+      if builder.save
+        format.html { redirect_to @comorbidity, notice: 'The comorbidity was added.' }
         format.json { render action: 'show', status: :created, location: @comorbidity }
       else
         format.html { render action: 'new' }
