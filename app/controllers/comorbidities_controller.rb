@@ -21,7 +21,7 @@ class ComorbiditiesController < ApplicationController
 
     respond_to do |format|
       if builder.save
-        format.html { redirect_to @comorbidity, notice: 'The comorbidity was added.' }
+        format.html { redirect_to comorbidities_path, notice: 'The comorbidity was added.' }
         format.json { render action: 'show', status: :created, location: @comorbidity }
       else
         format.html { render action: 'new' }
@@ -33,7 +33,7 @@ class ComorbiditiesController < ApplicationController
   def update
     respond_to do |format|
       if @comorbidity.update(comorbidity_params)
-        format.html { redirect_to @comorbidity, notice: 'Comorbidity was successfully updated.' }
+        format.html { redirect_to comorbidities_path, notice: 'Comorbidity was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
