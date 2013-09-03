@@ -20,10 +20,15 @@
 class Procedure < ActiveRecord::Base
   validates :name, :format => { :with => /\A[[:print:][:space:]]{1,100}\Z/ }
 
-  %w(beginning_age ending_age slope exponent vertical_offset male_risk female_risk pregnancy obesity).each do |column|
+  %w(beginning_age slope exponent vertical_offset male_risk female_risk pregnancy obesity).each do |column|
     validates column, :numericality => {
       :greater_than_or_equal_to => 0,
       :less_than_or_equal_to    => 100,
     }
   end
+
+  validates :ending_age, :numericality => {
+    :greater_than_or_equal_to => 0,
+    :less_than_or_equal_to    => 1000,
+  }
 end

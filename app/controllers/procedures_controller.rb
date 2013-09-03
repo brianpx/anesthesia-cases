@@ -1,23 +1,26 @@
 class ProceduresController < ApplicationController
-  before_action :set_procedure, only: [:show, :edit, :update, :destroy]
+  before_action :set_procedure,           :only => [:show, :edit, :update, :destroy]
+  before_action :set_submit_button_text,  :only => [:new, :create, :edit, :update]
 
   def index
-    @procedures = Procedure.all
+    @procedures = Procedure.order 'name'
   end
 
   def new
-    @procedure = Procedure.new
+    @procedure          = ProcedureBuilder.new.procedure
+    @submit_button_text = 'Add Procedure'
   end
 
   def edit
   end
 
   def create
-    @procedure = Procedure.new(procedure_params)
+    builder     = ProcedureBuilder.new procedure_params
+    @procedure  = builder.procedure
 
     respond_to do |format|
-      if @procedure.save
-        format.html { redirect_to @procedure, notice: 'Procedure was successfully created.' }
+      if builder.save
+        format.html { redirect_to procedures_path, notice: 'The procedure was added.' }
         format.json { render action: 'show', status: :created, location: @procedure }
       else
         format.html { render action: 'new' }
@@ -29,7 +32,7 @@ class ProceduresController < ApplicationController
   def update
     respond_to do |format|
       if @procedure.update(procedure_params)
-        format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
+        format.html { redirect_to procedures_path, notice: 'Procedure was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -52,7 +55,15 @@ class ProceduresController < ApplicationController
     @procedure = Procedure.find(params[:id])
   end
 
+  def set_submit_button_text
+    if @procedure && @procedure.persisted?
+      @submit_button_text = 'Update Procedure'
+    else
+      @submit_button_text = 'Add Procedure'
+    end
+  end
+
   def procedure_params
-    params.require(:procedure).permit(:name, :beginning_age)
+    params.require(:procedure).permit(:name, :beginning_age, :ending_age, :slope, :exponent, :vertical_offset, :male_risk, :female_risk, :pregnancy, :obesity)
   end
 end
