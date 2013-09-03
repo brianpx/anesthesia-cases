@@ -2,18 +2,20 @@
 #
 # Table name: comorbidities
 #
-#  id             :integer          not null, primary key
-#  name           :string(255)
-#  created_at     :datetime
-#  updated_at     :datetime
-#  slope          :decimal(10, 2)
-#  exponent       :decimal(10, 2)
-#  male_risk      :decimal(10, 2)
-#  female_risk    :decimal(10, 2)
-#  smoking        :decimal(10, 2)
-#  diabetes       :decimal(10, 2)
-#  hypertension   :decimal(10, 2)
-#  hyperlipidemia :decimal(10, 2)
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  slope           :decimal(10, 2)
+#  exponent        :decimal(10, 2)
+#  male_risk       :decimal(10, 2)
+#  female_risk     :decimal(10, 2)
+#  smoking         :decimal(10, 2)
+#  diabetes        :decimal(10, 2)
+#  hypertension    :decimal(10, 2)
+#  hyperlipidemia  :decimal(10, 2)
+#  beginning_age   :decimal(10, 2)
+#  vertical_offset :decimal(10, 2)
 #
 
 class Comorbidity < ActiveRecord::Base
