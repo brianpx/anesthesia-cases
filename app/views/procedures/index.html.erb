@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Procedures</h1>
+  </div>
+
+  <div class="col-xs-12">
+    <table class="table table-striped table-hover table-condensed table-responsive table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Beginning Age</th>
+          <th>Ending Age</th>
+          <th>Slope</th>
+          <th>Slope Exponent</th>
+          <th>Vertical Offset</th>
+          <th>Male Risk</th>
+          <th>Female Risk</th>
+          <th>Pregnancy</th>
+          <th>Obesity</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @procedures.each do |procedure| %>
+        <tr>
+        <td><%= procedure.name %></td>
+        <td><%= procedure.beginning_age %></td>
+        <td><%= procedure.ending_age %></td>
+        <td><%= procedure.slope %></td>
+        <td><%= procedure.exponent %></td>
+        <td><%= procedure.vertical_offset %></td>
+        <td><%= procedure.male_risk %></td>
+        <td><%= procedure.female_risk %></td>
+        <td><%= procedure.pregnancy %></td>
+        <td><%= procedure.obesity %></td>
+
+        <td colspan="2">
+          <%= link_to 'Edit', edit_procedure_path(procedure), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to 'Destroy', procedure, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to 'Add A Procedure', new_procedure_path, :class => 'btn btn-primary' %>
+  </div>
+</div>
+
