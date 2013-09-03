@@ -1,8 +1,9 @@
 class ComorbiditiesController < ApplicationController
-  before_action :set_comorbidity, only: [:show, :edit, :update, :destroy]
+  before_action :set_comorbidity,         :only => [:show, :edit, :update, :destroy]
+  before_action :set_submit_button_text,  :only => [:new, :create, :edit, :update]
 
   def index
-    @comorbidities = Comorbidity.all
+    @comorbidities = Comorbidity.order 'name'
   end
 
   def show
@@ -51,11 +52,20 @@ class ComorbiditiesController < ApplicationController
   end
 
   private
-    def set_comorbidity
-      @comorbidity = Comorbidity.find(params[:id])
-    end
 
-    def comorbidity_params
-      params.require(:comorbidity).permit(:name, :beginning_age, :slope, :exponent, :vertical_offset, :male_risk, :female_risk, :smoking, :diabetes, :hypertension, :hyperlipidemia)
+  def set_comorbidity
+    @comorbidity = Comorbidity.find(params[:id])
+  end
+
+  def set_submit_button_text
+    if @comorbidity && @comorbidity.persisted?
+      @submit_button_text = 'Update Comorbidity'
+    else
+      @submit_button_text = 'Add Comorbidity'
     end
+  end
+
+  def comorbidity_params
+    params.require(:comorbidity).permit(:name, :beginning_age, :slope, :exponent, :vertical_offset, :male_risk, :female_risk, :smoking, :diabetes, :hypertension, :hyperlipidemia)
+  end
 end
